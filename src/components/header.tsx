@@ -4,7 +4,7 @@ import { TablePropertiesIcon } from "lucide-react";
 
 const Header = () => {
   return (
-    <header className="sticky top-0 z-50 w-full border-b">
+    <header className="sticky top-0 z-50 w-full border-b bg-background/95 backdrop-blur supports-[backdrop-filter]:bg-background/60">
       <div className="container flex h-14 max-w-screen-2xl items-center">
         <div className="hidden space-x-6 md:flex">
           <a href="/" className="flex items-center space-x-2">
