@@ -1,10 +1,81 @@
-import { ThemeProvider } from '@/components/theme-provider';
-import { ReactNode } from 'react';
+import { ThemeProvider } from "@/components/theme-provider";
+import { TablePropertiesIcon } from "lucide-react";
+import { CommandMenu } from "./components/command-menu";
+import { ModeToggle } from "./components/mode-toggle";
 
-const App = ({ children }: { children: ReactNode }) => {
+const App = () => {
   return (
     <ThemeProvider defaultTheme="dark" storageKey="vite-ui-theme">
-      {children}
+      <div className="relative flex min-h-screen flex-col bg-background">
+        <header className="fixed top-0 w-full border-b">
+          <div className="container flex h-14 max-w-screen-2xl items-center">
+            <div className="hidden space-x-6 md:flex">
+              <a href="/" className="flex items-center space-x-2">
+                <TablePropertiesIcon className="h-6 w-6" />
+                <span className="hidden cursor-pointer bg-gradient-to-r from-indigo-400 to-cyan-400 bg-clip-text font-bold text-transparent md:inline-block">
+                  Tablilla
+                </span>
+              </a>
+              <nav className="flex items-center gap-4 text-sm">
+                <a
+                  href="/"
+                  className="text-foreground/60 transition-colors hover:text-foreground/80"
+                >
+                  Docs
+                </a>
+                <a
+                  href="/"
+                  className="text-foreground/60 transition-colors hover:text-foreground/80"
+                >
+                  Github
+                </a>
+                <a
+                  href="/"
+                  className="text-foreground/60 transition-colors hover:text-foreground/80"
+                >
+                  Example
+                </a>
+                <a
+                  href="/"
+                  className="text-foreground/60 transition-colors hover:text-foreground/80"
+                >
+                  About
+                </a>
+              </nav>
+            </div>
+            <div className="flex flex-1 items-center justify-between space-x-2 md:justify-end">
+              <div className="w-full flex-1 md:w-auto md:flex-none">
+                <CommandMenu
+                  commandItems={[
+                    { id: "1", name: "Docs" },
+                    { id: "2", name: "About" },
+                  ]}
+                  shorcutKey={"s"}
+                />
+                {/* <Badge variant={"outline"} className="hover:bg-accent">
+                  <span className="text-sm font-medium text-foreground/60">
+                    {" "}
+                    Search...
+                  </span>
+                  <kbd className="ml-4 hidden rounded border bg-muted p-1 font-mono text-[10px] font-medium text-foreground/60 sm:flex">
+                    Ctrl + S
+                  </kbd>
+                </Badge> */}
+              </div>
+              <nav className="flex items-center">
+                <ModeToggle />
+              </nav>
+            </div>
+          </div>
+        </header>
+        <main>
+          <aside></aside>
+          <article>
+            <section></section>
+          </article>
+        </main>
+        <footer></footer>
+      </div>
     </ThemeProvider>
   );
 };
