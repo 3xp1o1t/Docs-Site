@@ -1,6 +1,4 @@
-import { CommandItemType } from "@/types/command-item";
-import { useEffect, useState } from "react";
-import { Button } from "./ui/button";
+import { Button } from "@/components/ui/button";
 import {
   CommandDialog,
   CommandEmpty,
@@ -8,7 +6,9 @@ import {
   CommandInput,
   CommandItem,
   CommandList,
-} from "./ui/command";
+} from "@/components/ui/command";
+import { CommandItemType } from "@/types/command-item";
+import { useEffect, useState } from "react";
 
 type CommandMenuProps = {
   commandItems: CommandItemType[];
