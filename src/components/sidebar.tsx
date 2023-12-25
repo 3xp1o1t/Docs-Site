@@ -14,7 +14,11 @@ const Sidebar = () => {
         </div>
         <div className="grid grid-flow-row auto-rows-max text-sm">
           {components.map((component) => (
-            <a href="#" key={component} className="px-2 py-1 hover:underline">
+            <a
+              href={"http://localhost:5173/" + component}
+              key={component}
+              className="px-2 py-1 hover:underline"
+            >
               {component}
             </a>
           ))}

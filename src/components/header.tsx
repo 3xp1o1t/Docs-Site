@@ -1,6 +1,7 @@
 import { CommandMenu } from "@/components/command-menu";
 import { ModeToggle } from "@/components/mode-toggle";
 import { TablePropertiesIcon } from "lucide-react";
+import MobileNav from "./mobile-nav";
 
 const Header = () => {
   return (
@@ -40,6 +41,7 @@ const Header = () => {
             </a>
           </nav>
         </div>
+        <MobileNav />
         <div className="flex flex-1 items-center justify-between space-x-2 md:justify-end">
           <div className="w-full flex-1 md:w-auto md:flex-none">
             <CommandMenu
@@ -47,7 +49,7 @@ const Header = () => {
                 { id: "1", name: "Docs" },
                 { id: "2", name: "About" },
               ]}
-              shorcutKey={"s"}
+              shortcutKey={"s"}
             />
           </div>
           <nav className="flex items-center">

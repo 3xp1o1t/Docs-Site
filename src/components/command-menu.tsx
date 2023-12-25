@@ -12,25 +12,25 @@ import { useEffect, useState } from "react";
 
 type CommandMenuProps = {
   commandItems: CommandItemType[];
-  shorcutKey: string;
+  shortcutKey: string;
 };
 
 export function CommandMenu({
   commandItems,
-  shorcutKey = "s",
+  shortcutKey = "s",
 }: Readonly<CommandMenuProps>) {
   const [open, setOpen] = useState(false);
 
   useEffect(() => {
     const down = (e: KeyboardEvent) => {
-      if (e.key === shorcutKey && (e.metaKey || e.ctrlKey)) {
+      if (e.key === shortcutKey && (e.metaKey || e.ctrlKey)) {
         e.preventDefault();
         setOpen((open) => !open);
       }
     };
     document.addEventListener("keydown", down);
     return () => document.removeEventListener("keydown", down);
-  }, [shorcutKey]);
+  }, [shortcutKey]);
 
   return (
     <>
@@ -51,9 +51,9 @@ export function CommandMenu({
         onClick={() => setOpen((prev) => !prev)}
       >
         <span className="text-sm font-medium text-foreground/60">
-          Search...
+          Search...{" "}
           <kbd className="ml-4 hidden rounded border bg-muted p-1 font-mono text-[10px] font-medium text-foreground/60 sm:flex">
-            Ctrl + {shorcutKey.toUpperCase()}
+            {"Ctrl + " + shortcutKey.toUpperCase()}
           </kbd>
         </span>
       </Button>
